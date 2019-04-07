@@ -20,6 +20,7 @@ const action1 = new Promise(function (resolve, reject) {
     console.log('开始解压')
 
 //解压zip文件
+    let i=0
     fs.readdir(testFolder, (err, files) => {
         files.forEach(file => {
             if (file.indexOf('.') < 0 && file.indexOf('node') < 0) {
@@ -28,7 +29,7 @@ const action1 = new Promise(function (resolve, reject) {
                     files.forEach(file2 => {
                         if(file2.indexOf('.zip')>=0){
                             let oldPath = __dirname +'/'+file+'/'+file2
-                            compressing.zip.uncompress(oldPath, './'+file)
+                            compressing.zip.uncompress(oldPath, './'+i)
                                 .then(() => {
                                     //console.log('解压成功');
                                 })
